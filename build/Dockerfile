@@ -181,6 +181,12 @@ RUN \
     # Cleanup.
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends dialog \
+    && apt-get install -y --no-install-recommends openssh-server \
+    && echo "root:Docker!" | chpasswd \
+    && chmod u+x /app/init_container.sh
 # Improve fonts subpixel hinting and smoothing.
 # Credits:
 # https://github.com/arachnys/athenapdf/issues/69.
