@@ -196,6 +196,8 @@ COPY build/fonts.conf /etc/fonts/conf.d/100-gotenberg.conf
 # Copy the Gotenberg binary from the binary stage.
 COPY --from=binary-stage /home/gotenberg /usr/bin/
 
+COPY build/sshd_config /etc/ssh/sshd_config
+COPY build/init_container.sh /home/gotenberg/init_container.sh
 # Environment variables required by modules or else.
 ENV CHROMIUM_BIN_PATH=/usr/bin/chromium
 ENV LIBREOFFICE_BIN_PATH=/usr/lib/libreoffice/program/soffice.bin
