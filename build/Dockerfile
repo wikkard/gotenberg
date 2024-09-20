@@ -212,5 +212,5 @@ WORKDIR /home/gotenberg
 # Default API port.
 EXPOSE 3000
 
-ENTRYPOINT [ "/usr/bin/tini", "--", "/app/init_container.sh" ]
-CMD [ "gotenberg" ]
+ENTRYPOINT [ "/usr/bin/tini", "--", "/home/gotenberg/init_container.sh" ]
+CMD [ "/home/gotenberg/init_container.sh" ]
